@@ -1,6 +1,6 @@
-# Contributing to Strix
+# Contributing to Esprit
 
-Thank you for your interest in contributing to Strix! This guide will help you get started with development and contributions.
+Thank you for your interest in contributing to Esprit! This guide will help you get started with development and contributions.
 
 ## 🚀 Development Setup
 
@@ -15,8 +15,8 @@ Thank you for your interest in contributing to Strix! This guide will help you g
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/usestrix/strix.git
-   cd strix
+   git clone https://github.com/improdead/Esprit-cli.git
+   cd Esprit-cli
    ```
 
 2. **Install development dependencies**
@@ -30,18 +30,18 @@ Thank you for your interest in contributing to Strix! This guide will help you g
 
 3. **Configure your LLM provider**
    ```bash
-   export STRIX_LLM="openai/gpt-5"
+   export ESPRIT_LLM="openai/gpt-5"
    export LLM_API_KEY="your-api-key"
    ```
 
-4. **Run Strix in development mode**
+4. **Run Esprit in development mode**
    ```bash
-   poetry run strix --target https://example.com
+   poetry run esprit --target https://example.com
    ```
 
 ## 📚 Contributing Prompt Modules
 
-Prompt modules are specialized knowledge packages that enhance agent capabilities. See [strix/prompts/README.md](strix/prompts/README.md) for detailed guidelines.
+Prompt modules are specialized knowledge packages that enhance agent capabilities. See [esprit/prompts/README.md](esprit/prompts/README.md) for detailed guidelines.
 
 ### Quick Guide
 
@@ -83,7 +83,7 @@ Prompt modules are specialized knowledge packages that enhance agent capabilitie
 When reporting bugs, please include:
 
 - Python version and OS
-- Strix version
+- Esprit version
 - LLMs being used
 - Full error traceback
 - Steps to reproduce
@@ -101,16 +101,14 @@ We welcome feature ideas! Please:
 
 ## 🤝 Community
 
-- **Discord**: [Join our community](https://discord.gg/YjKFvEZSdZ)
-- **Issues**: [GitHub Issues](https://github.com/usestrix/strix/issues)
+- **Issues**: [GitHub Issues](https://github.com/improdead/Esprit-cli/issues)
 
 ## ✨ Recognition
 
 We value all contributions! Contributors will be:
 - Listed in release notes
-- Thanked in our Discord
 - Added to contributors list (coming soon)
 
 ---
 
-**Questions?** Reach out on [Discord](https://discord.gg/YjKFvEZSdZ) or create an issue. We're here to help!
+**Questions?** Create an issue. We're here to help!

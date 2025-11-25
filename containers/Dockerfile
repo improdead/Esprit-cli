@@ -148,7 +148,7 @@ RUN ARCH=$(uname -m) && \
     rm caido-cli.tar.gz && \
     mv caido-cli /usr/local/bin/
 
-ENV STRIX_SANDBOX_MODE=true
+ENV ESPRIT_SANDBOX_MODE=true
 ENV PYTHONPATH=/app
 ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
@@ -166,17 +166,17 @@ RUN /app/venv/bin/pip install -r /home/pentester/tools/jwt_tool/requirements.txt
 
 RUN echo "# Sandbox Environment" > README.md
 
-COPY strix/__init__.py strix/
-COPY strix/runtime/tool_server.py strix/runtime/__init__.py strix/runtime/runtime.py /app/strix/runtime/
+COPY esprit/__init__.py esprit/
+COPY esprit/runtime/tool_server.py esprit/runtime/__init__.py esprit/runtime/runtime.py /app/esprit/runtime/
 
-COPY strix/tools/__init__.py strix/tools/registry.py strix/tools/executor.py strix/tools/argument_parser.py /app/strix/tools/
+COPY esprit/tools/__init__.py esprit/tools/registry.py esprit/tools/executor.py esprit/tools/argument_parser.py /app/esprit/tools/
 
-COPY strix/tools/browser/ /app/strix/tools/browser/
-COPY strix/tools/file_edit/ /app/strix/tools/file_edit/
-COPY strix/tools/notes/ /app/strix/tools/notes/
-COPY strix/tools/python/ /app/strix/tools/python/
-COPY strix/tools/terminal/ /app/strix/tools/terminal/
-COPY strix/tools/proxy/ /app/strix/tools/proxy/
+COPY esprit/tools/browser/ /app/esprit/tools/browser/
+COPY esprit/tools/file_edit/ /app/esprit/tools/file_edit/
+COPY esprit/tools/notes/ /app/esprit/tools/notes/
+COPY esprit/tools/python/ /app/esprit/tools/python/
+COPY esprit/tools/terminal/ /app/esprit/tools/terminal/
+COPY esprit/tools/proxy/ /app/esprit/tools/proxy/
 
 RUN echo 'export PATH="/home/pentester/go/bin:/home/pentester/.local/bin:/home/pentester/.npm-global/bin:$PATH"' >> /home/pentester/.bashrc && \
     echo 'export PATH="/home/pentester/go/bin:/home/pentester/.local/bin:/home/pentester/.npm-global/bin:$PATH"' >> /home/pentester/.profile
