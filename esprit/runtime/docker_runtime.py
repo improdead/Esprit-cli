@@ -241,8 +241,8 @@ class DockerRuntime(AbstractRuntime):
 
         container.exec_run(
             f"bash -c 'source /etc/profile.d/proxy.sh && cd /app && "
-            f"ESPRIT_SANDBOX_MODE=true CAIDO_API_TOKEN={caido_token} CAIDO_PORT={caido_port} "
-            f"poetry run python esprit/runtime/tool_server.py --token {tool_server_token} "
+            f"STRIX_SANDBOX_MODE=true CAIDO_API_TOKEN={caido_token} CAIDO_PORT={caido_port} "
+            f"poetry run python strix/runtime/tool_server.py --token {tool_server_token} "
             f"--host 0.0.0.0 --port {tool_server_port} &'",
             detach=True,
             user="pentester",
