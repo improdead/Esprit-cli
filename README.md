@@ -71,11 +71,11 @@ export ESPRIT_LLM="openai/gpt-5"
 export LLM_API_KEY="your-api-key"
 
 # Run your first security assessment
-esprit --target ./app-directory
+esprit --target ~/Documents/your-app
 ```
 
 > [!NOTE]
-> First run automatically pulls the sandbox Docker image. Results are saved to `esprit_runs/<run-name>`
+> First run automatically pulls the sandbox Docker image (`ghcr.io/usestrix/strix-sandbox`). Results are saved to `esprit_runs/<run-name>`
 
 ---
 
@@ -121,7 +121,7 @@ Advanced multi-agent orchestration for comprehensive security testing:
 
 ```bash
 # Scan a local codebase
-esprit --target ./app-directory
+esprit --target ~/Documents/your-app
 
 # Security review of a GitHub repository
 esprit --target https://github.com/org/repo
