@@ -14,7 +14,7 @@ from docker.models.containers import Container
 from .runtime import AbstractRuntime, SandboxInfo
 
 
-ESPRIT_IMAGE = os.getenv("ESPRIT_IMAGE", "ghcr.io/improdead/esprit-sandbox:0.1.10")
+ESPRIT_IMAGE = os.getenv("ESPRIT_IMAGE", "ghcr.io/usestrix/strix-sandbox:0.1.10")
 logger = logging.getLogger(__name__)
 
 
