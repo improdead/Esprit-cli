@@ -1,0 +1,364 @@
+{
+  "theme": {
+    "name": "Esprit Landing Page Theme",
+    "description": "Design system and theme tokens extracted from the Esprit landing page for dashboard design",
+    
+    "colors": {
+      "primary": {
+        "black": "#000000",
+        "darkGray": "#222222",
+        "gray": "#333333"
+      },
+      "background": {
+        "main": "#e8e8e8",
+        "mainWithOpacity": "#e8e8e8/90",
+        "white": "#ffffff",
+        "offWhite": "#fafafa",
+        "lightGray": "#f9f9f9",
+        "backgroundOverlay": "background/50"
+      },
+      "text": {
+        "primary": "#111111",
+        "black": "#000000",
+        "darkGray": "#222222",
+        "gray": "#666666",
+        "mediumGray": "#999999",
+        "lightGray": "#cccccc",
+        "muted": "#666666",
+        "secondary": "#666666",
+        "tertiary": "#999999",
+        "quaternary": "#cccccc"
+      },
+      "borders": {
+        "default": "#cccccc",
+        "hover": "#999999",
+        "light": "#e5e5e5",
+        "medium": "#cccccc",
+        "dark": "#333333",
+        "gray": "#cccccc",
+        "grayLight": "#e5e5e5",
+        "grayMedium": "#cccccc",
+        "grayDark": "#333333",
+        "white": "#ffffff",
+        "whiteWithOpacity": "white/50"
+      },
+      "accent": {
+        "orange": {
+          "500": "#f97316",
+          "600": "#ea580c",
+          "withOpacity5": "orange-500/5",
+          "withOpacity10": "orange-500/10"
+        }
+      },
+      "code": {
+        "purple": "#9333ea",
+        "green": "#16a34a",
+        "blue": "#2563eb",
+        "gray": "#6b7280",
+        "grayLight": "#9ca3af",
+        "grayDark": "#1f2937"
+      },
+      "selection": {
+        "background": "orange-100",
+        "text": "orange-900"
+      },
+      "hover": {
+        "black": "#000000",
+        "darkGray": "#1a1a1a",
+        "gray": "#808080",
+        "gray800": "#1f2937",
+        "whiteOverlay": "white/50"
+      }
+    },
+    
+    "typography": {
+      "fontFamilies": {
+        "sans": "font-sans (system font stack)",
+        "serif": "font-serif (system serif stack)",
+        "mono": "font-mono (monospace font stack)"
+      },
+      "fontSizes": {
+        "xs": "0.75rem (12px)",
+        "sm": "0.875rem (14px)",
+        "base": "1rem (16px)",
+        "lg": "1.125rem (18px)",
+        "xl": "1.25rem (20px)",
+        "2xl": "1.5rem (24px)",
+        "3xl": "1.875rem (30px)",
+        "4xl": "2.25rem (36px)",
+        "5xl": "3rem (48px)",
+        "6xl": "3.75rem (60px)",
+        "7xl": "4.5rem (72px)",
+        "custom": {
+          "10px": "0.625rem",
+          "11px": "0.6875rem",
+          "13px": "0.8125rem"
+        }
+      },
+      "fontWeights": {
+        "normal": "400",
+        "medium": "500",
+        "semibold": "600",
+        "bold": "700"
+      },
+      "lineHeights": {
+        "tight": "1.0",
+        "relaxed": "1.5-1.75",
+        "normal": "1.5"
+      },
+      "letterSpacing": {
+        "tight": "tracking-tight",
+        "wide": "tracking-wide",
+        "widest": "tracking-widest",
+        "custom": "tracking-[0.2em]"
+      },
+      "textStyles": {
+        "headline": {
+          "fontFamily": "font-sans",
+          "fontWeight": "font-medium",
+          "fontSize": "text-5xl md:text-6xl lg:text-7xl",
+          "lineHeight": "leading-[1.0]",
+          "letterSpacing": "tracking-tight",
+          "color": "text-[#111]"
+        },
+        "subheadline": {
+          "fontFamily": "font-mono",
+          "fontSize": "text-xs md:text-sm",
+          "lineHeight": "leading-relaxed",
+          "letterSpacing": "tracking-tight",
+          "color": "text-[#666]"
+        },
+        "sectionTitle": {
+          "fontFamily": "font-sans or font-serif",
+          "fontWeight": "font-medium",
+          "fontSize": "text-3xl md:text-4xl or text-4xl md:text-5xl",
+          "lineHeight": "leading-tight or leading-[1.1]"
+        },
+        "body": {
+          "fontFamily": "font-mono",
+          "fontSize": "text-xs md:text-sm or text-sm md:text-base",
+          "lineHeight": "leading-relaxed",
+          "color": "text-gray-600"
+        },
+        "label": {
+          "fontFamily": "font-mono",
+          "fontSize": "text-xs",
+          "fontWeight": "font-medium",
+          "letterSpacing": "tracking-[0.2em] or tracking-widest",
+          "color": "text-gray-400",
+          "textTransform": "uppercase"
+        },
+        "navigation": {
+          "fontFamily": "font-sans",
+          "fontSize": "text-[13px]",
+          "fontWeight": "font-medium",
+          "letterSpacing": "tracking-wide",
+          "textTransform": "uppercase"
+        },
+        "button": {
+          "fontFamily": "font-mono",
+          "fontSize": "text-xs or text-sm",
+          "letterSpacing": "tracking-widest",
+          "textTransform": "uppercase"
+        }
+      }
+    },
+    
+    "spacing": {
+      "scale": {
+        "0": "0",
+        "1": "0.25rem (4px)",
+        "1.5": "0.375rem (6px)",
+        "2": "0.5rem (8px)",
+        "3": "0.75rem (12px)",
+        "4": "1rem (16px)",
+        "5": "1.25rem (20px)",
+        "6": "1.5rem (24px)",
+        "8": "2rem (32px)",
+        "10": "2.5rem (40px)",
+        "12": "3rem (48px)",
+        "16": "4rem (64px)",
+        "20": "5rem (80px)",
+        "24": "6rem (96px)"
+      },
+      "sectionPadding": {
+        "vertical": "py-20 or py-24",
+        "horizontal": "px-6",
+        "hero": "pt-20 pb-24"
+      },
+      "container": {
+        "maxWidth": {
+          "small": "max-w-3xl",
+          "medium": "max-w-5xl",
+          "large": "max-w-7xl",
+          "xlarge": "max-w-[1200px]",
+          "xxlarge": "max-w-[1440px]"
+        },
+        "padding": "px-6"
+      }
+    },
+    
+    "components": {
+      "button": {
+        "base": "inline-flex items-center font-mono transition-all duration-200 active:translate-y-[1px]",
+        "variants": {
+          "primary": {
+            "background": "bg-[#222]",
+            "hover": "hover:bg-black",
+            "text": "text-white",
+            "border": "border border-[#222]",
+            "shadow": "shadow-sm"
+          },
+          "outline": {
+            "background": "bg-transparent",
+            "hover": "hover:bg-white/50",
+            "text": "text-[#222]",
+            "border": "border border-[#ccc]",
+            "hoverBorder": "hover:border-[#999]"
+          },
+          "text": {
+            "background": "bg-transparent",
+            "text": "text-[#222]",
+            "hover": "hover:text-black",
+            "decoration": "underline decoration-1 underline-offset-4"
+          }
+        },
+        "sizes": {
+          "sm": "px-4 py-1.5 text-xs",
+          "md": "px-6 py-2.5 text-sm",
+          "lg": "px-8 py-3 text-base"
+        },
+        "headerButton": {
+          "height": "h-full",
+          "padding": "px-8",
+          "background": "bg-black",
+          "text": "text-white",
+          "font": "font-mono text-xs uppercase tracking-widest",
+          "hover": "hover:bg-gray-800",
+          "transition": "transition-colors"
+        }
+      },
+      "header": {
+        "height": "h-[72px]",
+        "background": "bg-[#e8e8e8]/90",
+        "backdrop": "backdrop-blur-md",
+        "border": "border-b border-gray-300",
+        "position": "sticky top-0 z-50",
+        "logo": {
+          "height": "h-16",
+          "padding": "pl-6 md:pl-8"
+        }
+      },
+      "card": {
+        "background": "bg-white",
+        "border": "border border-gray-200",
+        "borderRadius": "rounded",
+        "shadow": "shadow-sm or shadow-soft",
+        "padding": "p-6"
+      },
+      "codeBlock": {
+        "background": "bg-white",
+        "border": "border border-gray-200",
+        "font": "font-mono text-xs",
+        "header": {
+          "background": "bg-[#fafafa]",
+          "border": "border-b border-gray-200"
+        },
+        "lineNumbers": {
+          "color": "text-gray-300",
+          "border": "border-r border-gray-100"
+        },
+        "syntax": {
+          "purple": "text-purple-600",
+          "green": "text-green-600",
+          "blue": "text-blue-600",
+          "gray": "text-gray-400"
+        }
+      },
+      "section": {
+        "spacing": "py-20 px-6",
+        "border": "border-t border-gray-200",
+        "maxWidth": "max-w-5xl or max-w-7xl mx-auto"
+      }
+    },
+    
+    "effects": {
+      "glow": {
+        "orange": "bg-orange-500/5 blur-[120px] rounded-full",
+        "position": "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+        "size": "w-[80%] h-[80%]",
+        "zIndex": "z-[-1]"
+      },
+      "backdrop": {
+        "blur": "backdrop-blur-md",
+        "opacity": "/90"
+      },
+      "transitions": {
+        "default": "transition-colors",
+        "all": "transition-all duration-200",
+        "smooth": "transition-all duration-300 ease-in-out"
+      },
+      "hover": {
+        "translate": "group-hover:translate-x-0.5",
+        "scale": "active:translate-y-[1px]"
+      }
+    },
+    
+    "decorative": {
+      "dots": {
+        "size": "w-1 h-1",
+        "color": "bg-black/50",
+        "borderRadius": "rounded-sm",
+        "gap": "gap-1.5"
+      },
+      "badge": {
+        "dot": "w-2 h-2 rounded-full bg-black"
+      }
+    },
+    
+    "layout": {
+      "container": {
+        "maxWidth": "max-w-[1440px]",
+        "margin": "mx-auto",
+        "background": "bg-background/50",
+        "border": "border-x border-white/50",
+        "shadow": "shadow-2xl",
+        "minHeight": "min-h-screen"
+      },
+      "grid": {
+        "responsive": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+        "gap": "gap-6 or gap-12 lg:gap-16"
+      },
+      "flex": {
+        "gap": "gap-3, gap-4, gap-8, gap-16"
+      }
+    },
+    
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    
+    "designPrinciples": {
+      "minimalism": "Clean, minimal design with plenty of white space",
+      "typography": "Strong emphasis on typography hierarchy with sans-serif for headings and monospace for body text",
+      "contrast": "High contrast between text and backgrounds (black on light gray)",
+      "spacing": "Generous spacing between sections and elements",
+      "monochrome": "Primarily black, white, and gray color palette with orange as accent",
+      "modern": "Modern, professional aesthetic suitable for developer tools",
+      "readability": "Focus on readability with relaxed line heights and appropriate font sizes"
+    },
+    
+    "usageNotes": {
+      "colors": "Use the monochrome palette (black, white, grays) as primary colors. Orange (#f97316, #ea580c) should be used sparingly as an accent color for highlights, CTAs, or important information.",
+      "typography": "Use font-sans for headings and navigation, font-serif for large display text, and font-mono for body text, labels, buttons, and code-related content.",
+      "spacing": "Maintain generous spacing (py-20, py-24 for sections) and use consistent padding (px-6) for horizontal spacing.",
+      "components": "Buttons should use uppercase text with wide letter spacing. Cards should have subtle borders and shadows.",
+      "layout": "Use max-width containers (max-w-[1440px] for main container) and center content with mx-auto."
+    }
+  }
+}
+

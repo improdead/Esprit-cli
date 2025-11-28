@@ -1,223 +1,363 @@
-<p align="center">
-  <a href="#">
-    <img src=".github/logo.png" width="150" alt="Esprit Logo">
-  </a>
-</p>
+# Esprit
 
-<h1 align="center">Esprit</h1>
+**AI-Powered Penetration Testing Agent**
 
-<h2 align="center">Open-source AI Hackers to secure your Apps</h2>
-
-<div align="center">
-
-[![Python](https://img.shields.io/pypi/pyversions/esprit-cli?color=3776AB)](https://pypi.org/project/esprit-cli/)
-[![PyPI](https://img.shields.io/pypi/v/esprit-cli?color=10b981)](https://pypi.org/project/esprit-cli/)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-
-[![GitHub Stars](https://img.shields.io/github/stars/improdead/Esprit-cli)](https://github.com/improdead/Esprit-cli)
-
-</div>
-
-<br>
-
-<div align="center">
-  <img src=".github/screenshot.png" alt="Esprit Demo" width="800" style="border-radius: 16px;">
-</div>
-
-<br>
-
-> [!TIP]
-> **New!** Esprit now integrates seamlessly with GitHub Actions and CI/CD pipelines. Automatically scan for vulnerabilities on every pull request and block insecure code before it reaches production!
+Esprit is an autonomous security assessment tool that uses AI agents to perform comprehensive penetration tests. It can analyze web applications, APIs, code repositories, and network targets with minimal human intervention.
 
 ---
 
-## 🦉 Esprit Overview
+## Features
 
-Esprit are autonomous AI agents that act just like real hackers - they run your code dynamically, find vulnerabilities, and validate them through actual proof-of-concepts. Built for developers and security teams who need fast, accurate security testing without the overhead of manual pentesting or the false positives of static analysis tools.
+### AI-Driven Security Testing
+- **Autonomous agent** powered by LLMs (Claude, GPT-4, local models)
+- **Multi-target support**: URLs, GitHub repos, local code, IP addresses
+- **Comprehensive testing**: OWASP Top 10, business logic, authentication flaws
+- **Real-time reporting** with detailed vulnerability findings
 
-**Key Capabilities:**
+### Tool Suite
+| Tool | Description |
+|------|-------------|
+| **Browser** | Automated browser for web app testing (Playwright) |
+| **Terminal** | Command execution for recon and exploitation |
+| **Proxy** | HTTP/HTTPS interception via Caido |
+| **File Editor** | Source code analysis and modification |
+| **Web Search** | Real-time research via Perplexity |
+| **Python REPL** | Custom exploit development |
+| **Notes** | Findings documentation |
+| **Reporting** | Automated vulnerability reports |
 
-- 🔧 **Full hacker toolkit** out of the box
-- 🤝 **Teams of agents** that collaborate and scale
-- ✅ **Real validation** with PoCs, not false positives
-- 💻 **Developer‑first** CLI with actionable reports
-- 🔄 **Auto‑fix & reporting** to accelerate remediation
+### Vulnerability Detection
+- SQL Injection
+- Cross-Site Scripting (XSS)
+- Authentication & JWT flaws
+- IDOR & Broken Access Control
+- SSRF & Path Traversal
+- Race Conditions
+- Business Logic Vulnerabilities
+- Mass Assignment
+- And more...
 
+### Deployment Options
 
-## 🎯 Use Cases
-
-- **Application Security Testing** - Detect and validate critical vulnerabilities in your applications
-- **Rapid Penetration Testing** - Get penetration tests done in hours, not weeks, with compliance reports
-- **Bug Bounty Automation** - Automate bug bounty research and generate PoCs for faster reporting
-- **CI/CD Integration** - Run tests in CI/CD to block vulnerabilities before reaching production
+| Mode | Description |
+|------|-------------|
+| **Local** | Run on your machine with Docker |
+| **Cloud** | SaaS platform with hosted sandboxes |
+| **Hybrid** | Authenticate via cloud, run locally |
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-**Prerequisites:**
-- Docker (running)
-- Python 3.12+
-- An LLM provider key (e.g. [get OpenAI API key](https://platform.openai.com/api-keys) or use a local LLM)
-
-### Installation & First Scan
+### Option 1: Homebrew (Recommended)
 
 ```bash
-# Install Esprit
-pipx install esprit-cli
+# Install
+brew tap improdead/esprit
+brew install esprit
 
-# Configure your AI provider
-export ESPRIT_LLM="openai/gpt-5"
+# Login (opens browser)
+esprit login
+
+# Run a scan
+esprit scan --target https://example.com
+```
+
+### Option 2: From Source (Local Mode)
+
+```bash
+# Clone the repository
+git clone https://github.com/improdead/esprit.git
+cd esprit/cli
+
+# Install dependencies
+pip install poetry
+poetry install
+
+# Set environment variables
+export ESPRIT_LLM="anthropic/claude-sonnet-4-20250514"
 export LLM_API_KEY="your-api-key"
 
-# Run your first security assessment
-esprit --target ~/Documents/your-app
+# Run a scan
+poetry run esprit scan --target https://example.com
 ```
 
-> [!NOTE]
-> First run automatically pulls the sandbox Docker image (`ghcr.io/usestrix/strix-sandbox`). Results are saved to `esprit_runs/<run-name>`
+### Option 3: Docker
+
+```bash
+docker run -it \
+  -e ESPRIT_LLM="anthropic/claude-sonnet-4-20250514" \
+  -e LLM_API_KEY="your-api-key" \
+  ghcr.io/improdead/esprit:latest \
+  scan --target https://example.com
+```
 
 ---
 
-## ✨ Features
+## Usage
 
-### 🛠️ Agentic Security Tools
+### Basic Commands
 
-Esprit agents come equipped with a comprehensive security testing toolkit:
+```bash
+# Authentication (SaaS mode)
+esprit login                    # Login via browser OAuth
+esprit logout                   # Clear credentials
+esprit whoami                   # Show current user
+esprit status                   # Show usage/quota
 
-- **Full HTTP Proxy** - Full request/response manipulation and analysis
-- **Browser Automation** - Multi-tab browser for testing of XSS, CSRF, auth flows
-- **Terminal Environments** - Interactive shells for command execution and testing
-- **Python Runtime** - Custom exploit development and validation
-- **Reconnaissance** - Automated OSINT and attack surface mapping
-- **Code Analysis** - Static and dynamic analysis capabilities
-- **Knowledge Management** - Structured findings and attack documentation
+# Scanning
+esprit scan --target <target>   # Run a penetration test
+```
 
-### 🎯 Comprehensive Vulnerability Detection
+### Scan Targets
 
-Esprit can identify and validate a wide range of security vulnerabilities:
+```bash
+# Web application
+esprit scan --target https://api.example.com
 
-- **Access Control** - IDOR, privilege escalation, auth bypass
-- **Injection Attacks** - SQL, NoSQL, command injection
-- **Server-Side** - SSRF, XXE, deserialization flaws
-- **Client-Side** - XSS, prototype pollution, DOM vulnerabilities
-- **Business Logic** - Race conditions, workflow manipulation
-- **Authentication** - JWT vulnerabilities, session management
-- **Infrastructure** - Misconfigurations, exposed services
+# GitHub repository (white-box)
+esprit scan --target https://github.com/user/repo
 
-### 🕸️ Graph of Agents
+# Local codebase
+esprit scan --target ./my-project
 
-Advanced multi-agent orchestration for comprehensive security testing:
+# IP address
+esprit scan --target 192.168.1.100
 
-- **Distributed Workflows** - Specialized agents for different attacks and assets
-- **Scalable Testing** - Parallel execution for fast comprehensive coverage
-- **Dynamic Coordination** - Agents collaborate and share discoveries
+# Multiple targets
+esprit scan --target https://api.example.com --target https://github.com/user/repo
+```
+
+### Custom Instructions
+
+```bash
+# Focus on specific vulnerabilities
+esprit scan --target example.com --instruction "Focus on authentication and JWT vulnerabilities"
+
+# From a file
+esprit scan --target example.com --instruction ./instructions.txt
+```
+
+### Non-Interactive Mode
+
+```bash
+# CI/CD pipeline mode
+esprit scan --target https://api.example.com --non-interactive
+
+# Exit codes:
+# 0 = No vulnerabilities found
+# 2 = Vulnerabilities found
+```
 
 ---
 
-## 💻 Usage Examples
+## Configuration
 
-### Basic Usage
+### Environment Variables
 
-```bash
-# Scan a local codebase
-esprit --target ~/Documents/your-app
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `ESPRIT_LLM` | Yes | LLM model (e.g., `anthropic/claude-sonnet-4-20250514`) |
+| `LLM_API_KEY` | Yes* | API key for LLM provider |
+| `LLM_API_BASE` | No | Custom API endpoint for local models |
+| `PERPLEXITY_API_KEY` | No | Enables web search during testing |
 
-# Security review of a GitHub repository
-esprit --target https://github.com/org/repo
+*Not required in SaaS mode (we provide the LLM)
 
-# Black-box web application assessment
-esprit --target https://your-app.com
-```
-
-### Advanced Testing Scenarios
+### Supported LLM Providers
 
 ```bash
-# Grey-box authenticated testing
-esprit --target https://your-app.com --instruction "Perform authenticated testing using credentials: user:pass"
+# Anthropic (recommended)
+export ESPRIT_LLM="anthropic/claude-sonnet-4-20250514"
+export LLM_API_KEY="sk-ant-..."
 
-# Multi-target testing (source code + deployed app)
-esprit -t https://github.com/org/app -t https://your-app.com
+# OpenAI
+export ESPRIT_LLM="openai/gpt-4o"
+export LLM_API_KEY="sk-..."
 
-# Focused testing with custom instructions
-esprit --target api.your-app.com --instruction "Focus on business logic flaws and IDOR vulnerabilities"
+# Local models (Ollama)
+export ESPRIT_LLM="ollama/llama3.1:70b"
+export LLM_API_BASE="http://localhost:11434"
 ```
 
-### 🤖 Headless Mode
+---
 
-Run Esprit programmatically without interactive UI using the `-n/--non-interactive` flag—perfect for servers and automated jobs. The CLI prints real-time vulnerability findings, and the final report before exiting. Exits with non-zero code when vulnerabilities are found.
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     ESPRIT CLI                              │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │  EspritAgent (AI Core)                               │  │
+│  │  - Multi-turn conversation with LLM                  │  │
+│  │  - Tool selection and execution                       │  │
+│  │  - Vulnerability analysis and reporting               │  │
+│  └─────────────────────┬────────────────────────────────┘  │
+│                        │                                    │
+│  ┌─────────────────────┴────────────────────────────────┐  │
+│  │  Tool Registry                                        │  │
+│  ├──────────┬──────────┬──────────┬──────────┬─────────┤  │
+│  │ Browser  │ Terminal │  Proxy   │  Python  │  Notes  │  │
+│  │ (Playwright)        │ (Caido)  │  (REPL)  │         │  │
+│  └──────────┴──────────┴──────────┴──────────┴─────────┘  │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│  Docker Sandbox (Isolated Environment)                      │
+│  - Tool Server (FastAPI on port 5000)                       │
+│  - Caido Proxy (port 56789)                                 │
+│  - Chromium Browser                                         │
+│  - Python environment with security tools                   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## SaaS Platform
+
+The hosted version provides:
+
+- **No Docker required** - Sandboxes run on our infrastructure
+- **No API keys needed** - We provide the LLM
+- **Web Dashboard** - Start scans, view results, manage settings
+- **GitHub Integration** - Scan private repos with OAuth
+- **Real-time Updates** - Live scan progress and findings
+- **Team Features** - Shared scans and collaboration
+
+### Dashboard Pages
+
+| Page | Features |
+|------|----------|
+| **Dashboard** | Scan overview, recent activity, stats |
+| **New Pentest** | Start scans, add targets, connect GitHub |
+| **Scans** | Scan history, status, vulnerability counts |
+| **Scan Detail** | Live logs, real-time progress, results |
+| **Settings** | Profile, API tokens, notifications |
+| **Billing** | Plans, usage, subscription management |
+
+---
+
+## Project Structure
+
+```
+esprit/
+├── cli/                    # CLI application
+│   └── esprit/
+│       ├── agents/         # AI agent implementation
+│       ├── auth/           # Authentication (login, OAuth)
+│       ├── interface/      # TUI and CLI interfaces
+│       ├── llm/            # LLM integration (litellm)
+│       ├── prompts/        # Jinja templates for prompts
+│       ├── runtime/        # Docker/Remote runtime
+│       ├── tools/          # Tool implementations
+│       └── telemetry/      # Tracing and metrics
+│
+├── web/                    # React dashboard
+│   ├── auth/              # Login, signup, callbacks
+│   ├── dashboard/         # Dashboard pages
+│   └── lib/               # Supabase, hooks, context
+│
+├── backend/               # FastAPI backend
+│   └── app/
+│       ├── api/           # API routes
+│       ├── core/          # Config, auth
+│       └── services/      # Sandbox, LLM, usage
+│
+├── infrastructure/        # Terraform for AWS
+│   └── terraform/
+│
+└── homebrew-esprit/       # Homebrew formula
+```
+
+---
+
+## Development
+
+### Prerequisites
+
+- Python 3.11+
+- Node.js 18+
+- Docker
+- Poetry
+
+### Setup
 
 ```bash
-esprit -n --target https://your-app.com
+# CLI development
+cd cli
+poetry install
+poetry run esprit --help
+
+# Web dashboard
+cd web
+npm install
+npm run dev
+
+# Backend
+cd backend
+poetry install
+poetry run uvicorn app.main:app --reload
 ```
 
-### 🔄 CI/CD (GitHub Actions)
-
-Esprit can be added to your pipeline to run a security test on pull requests with a lightweight GitHub Actions workflow:
-
-```yaml
-name: esprit-penetration-test
-
-on:
-  pull_request:
-
-jobs:
-  security-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Esprit
-        run: pipx install esprit-cli
-
-      - name: Run Esprit
-        env:
-          ESPRIT_LLM: ${{ secrets.ESPRIT_LLM }}
-          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-
-        run: esprit -n -t ./
-```
-
-### ⚙️ Configuration
+### Running Tests
 
 ```bash
-export ESPRIT_LLM="openai/gpt-5"
-export LLM_API_KEY="your-api-key"
+# CLI tests
+cd cli
+poetry run pytest
 
-# Optional
-export LLM_API_BASE="your-api-base-url"  # if using a local model, e.g. Ollama, LMStudio
-export PERPLEXITY_API_KEY="your-api-key"  # for search capabilities
+# Web tests
+cd web
+npm test
 ```
 
-[OpenAI's GPT-5](https://openai.com/api/) (`openai/gpt-5`) and [Anthropic's Claude Sonnet 4.5](https://claude.com/platform/api) (`anthropic/claude-sonnet-4-5`) are the recommended models for best results with Esprit. We also support many [other options](https://docs.litellm.ai/docs/providers), including cloud and local models, though their performance and reliability may vary.
+---
 
-## 🤝 Contributing
+## Roadmap
 
-We welcome contributions from the community! There are several ways to contribute:
+- [ ] Multi-agent collaboration for complex targets
+- [ ] Integration with bug bounty platforms
+- [ ] Custom vulnerability templates
+- [ ] Team workspaces and RBAC
+- [ ] Scheduled/recurring scans
+- [ ] Slack/Discord notifications
+- [ ] PDF report generation
+- [ ] API for CI/CD integration
 
-### Code Contributions
-See our [Contributing Guide](CONTRIBUTING.md) for details on:
-- Setting up your development environment
-- Running tests and quality checks
-- Submitting pull requests
-- Code style guidelines
+---
 
+## Security
 
-### Prompt Modules Collection
-Help expand our collection of specialized prompt modules for AI agents:
-- Advanced testing techniques for vulnerabilities, frameworks, and technologies
-- See [Prompt Modules Documentation](esprit/prompts/README.md) for guidelines
-- Submit via [pull requests](https://github.com/improdead/Esprit-cli/pulls) or [issues](https://github.com/improdead/Esprit-cli/issues)
+Esprit is designed for **authorized security testing only**.
 
-## 👥 Join Our Community
+- Only test systems you own or have explicit permission to test
+- Sandboxed execution prevents damage to your local system
+- All scan results are stored locally or in your account
+- No data is shared with third parties
 
-Have questions? Found a bug? Want to contribute?
+---
 
-## 🌟 Support the Project
+## License
 
-**Love Esprit?** Give us a ⭐ on GitHub!
+MIT License - see [LICENSE](LICENSE) for details.
 
-> [!WARNING]
-> Only test apps you own or have permission to test. You are responsible for using Esprit ethically and legally.
+---
 
-</div>
+## Support
+
+- **Documentation**: https://docs.esprit.dev
+- **GitHub Issues**: https://github.com/improdead/esprit/issues
+- **Discord**: https://discord.gg/esprit
+- **Email**: support@esprit.dev
+
+---
+
+## Credits
+
+Built with:
+- [LiteLLM](https://github.com/BerriAI/litellm) - LLM abstraction
+- [Playwright](https://playwright.dev/) - Browser automation
+- [Caido](https://caido.io/) - HTTP proxy
+- [Rich](https://rich.readthedocs.io/) - Terminal UI
+- [Supabase](https://supabase.com/) - Backend-as-a-Service

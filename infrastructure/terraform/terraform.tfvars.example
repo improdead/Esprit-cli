@@ -1,0 +1,41 @@
+# Esprit Terraform Variables
+# Copy this file to terraform.tfvars and fill in your values
+
+# AWS Configuration
+aws_region  = "us-east-1"
+environment = "prod"
+
+# VPC Configuration (defaults should work for most cases)
+# vpc_cidr             = "10.0.0.0/16"
+# availability_zones   = ["us-east-1a", "us-east-1b"]
+# public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+# private_subnet_cidrs = ["10.0.10.0/24", "10.0.11.0/24"]
+
+# ECS Configuration
+sandbox_cpu    = 2048  # 2 vCPU
+sandbox_memory = 4096  # 4 GB
+
+orchestrator_cpu           = 512   # 0.5 vCPU
+orchestrator_memory        = 1024  # 1 GB
+orchestrator_desired_count = 2
+
+# Container Images
+sandbox_image = "ghcr.io/usestrix/strix-sandbox:0.1.10"
+# orchestrator_image = ""  # Leave empty to use ECR after push
+
+# Domain Configuration (optional - leave empty to use ALB DNS directly)
+# domain_name     = "api.esprit.dev"
+# certificate_arn = "arn:aws:acm:us-east-1:123456789:certificate/xxx"
+
+# Supabase Configuration (REQUIRED)
+supabase_url         = "https://your-project.supabase.co"
+supabase_service_key = "eyJ..."  # Service role key (keep secret!)
+
+# LLM Configuration (REQUIRED)
+llm_provider = "anthropic"
+llm_api_key  = "sk-ant-..."  # Your API key
+llm_model    = "claude-sonnet-4-20250514"
+
+# Rate Limiting
+api_rate_limit  = 100  # requests per second
+api_burst_limit = 200  # burst limit
